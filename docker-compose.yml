@@ -11,6 +11,7 @@ services:
       - backend-service
     networks:
       - app-network
+      - external-network
 
   backend-service:
     container_name: backend-container
@@ -26,6 +27,7 @@ services:
       - .:/usr/src/app
     networks:
       - app-network
+      - external-network
 
   mongo-service:
     container_name: mongo-container
@@ -34,6 +36,9 @@ services:
       - "27017:27017"
     networks:
       - app-network
+      - external-network
 
 networks:
   app-network:
+  external-network:
+    name: external-network
