@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  frontend-service:
+    container_name: frontend-container
+    restart: unless-stopped
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend-service
+    networks:
+      - app-network
+
+  backend-service:
+    container_name: backend-container
+    restart: unless-stopped
+    build: ./backend
+    ports:
+      - "5000:3000"
+    depends_on:
+      - mongo-service
+    links:
+      - mongo-service
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - app-network
+
+  mongo-service:
+    container_name: mongo-container
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+networks:
+  app-network:
