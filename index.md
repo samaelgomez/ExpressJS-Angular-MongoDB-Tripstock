@@ -1,23 +1,5 @@
 ## Aplicació amb Grafana i Prometheus
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
 ### Frontend i backend amb Docker-compose
 Primer creem un directori i li fem un pull de la nostra aplicació per a treballar sobre ell.
 ![1](https://user-images.githubusercontent.com/61690297/142940386-3f73870f-3547-4cd4-85b5-096ef0468226.png)
@@ -40,14 +22,14 @@ Ara ja podem fer el build del frontend.
 <br/>
 ![5](https://user-images.githubusercontent.com/61690297/142942149-d8a87c58-7d7b-42f0-a44b-46bcd2b0bc60.png)
  
-Seguidament farem el run i veiem que funciona.
+Seguidament farem el run i veiem que funciona com esperàvem.
 ![7](https://user-images.githubusercontent.com/61690297/142942262-194e6e33-b5bc-46ca-9ccd-60dc7835794d.png)
 ![7.5](https://user-images.githubusercontent.com/61690297/142942321-0784eb35-e645-450a-86ad-1626953144b0.png)
 
-Però encara soles està la vista, així que anem a fer el del backend també.
+Però encara soles està la vista, així que anem a fer el del backend també, així que farem altre dockerfile.
 ![8](https://user-images.githubusercontent.com/61690297/142942418-395c7d9c-dcf0-4c0c-91d6-baeb1f4f9a72.png)
 
-Novament ens pot donar el següent error al fer el build.
+Novament ens pot donar el següent error al fer el build on ens diu que no es pot connectar.
 ![9](https://user-images.githubusercontent.com/61690297/142942622-cee5d53c-9b8d-4f15-836c-4f7ecf9c678e.png)
 
 He pogut solucionar-ho amb el comandament "docker-compose build", el qual crea tots els serveis del fitxer.
@@ -60,7 +42,7 @@ Per a afegir la base de dades hem d'obrir altra terminal i fer "sudo docker-comp
 - db.categories.insertOne({"name" : "tools", "img" : "https://thumbs.dreamstime.com/b/top-view-set-hand-tools-wooden-background-copy-space-suitable-header-banner-top-view-set-hand-tools-190212508.jpg"})
 ![14](https://user-images.githubusercontent.com/61690297/142943964-ce183ec3-895a-4eae-9989-e9d59fee3eb4.png)
 
-Finalment tot el docker-compose.yml amb tot ens quedaria així:
+Finalment tot el docker-compose.yml amb tot ens quedaria així. Hem d'indicar les networks per a que estiguen connectades.
 ![15](https://user-images.githubusercontent.com/61690297/142944028-cf846554-20c9-448b-ac69-daba80239564.png)
 
 Ara fem el docker-compose up i veiem que ens apareixen els logs de que el servidor s'ha arrancat i s'ha connectat a la base de dades.
@@ -79,7 +61,7 @@ Per a implementar-los afegirem un nou docker-compose.yml on ficarem ambdós.
 Aquesta network externa que mencionem a l'arxiu hem de crear-la amb aquest comandament:
 ![16.25](https://user-images.githubusercontent.com/61690297/142945753-7cf6be65-4885-4d97-947e-5e7c26f67024.png)
 
-Els fitxers que es mencionen al compose els creem en els directoris grafana i prometheus i assignaran la configuració que volem. Caldrà indicar la network externa que hem creat.
+Els fitxers que es mencionen al compose els creem en els directoris grafana i prometheus i assignaran la configuració que volem.
 ![16.3](https://user-images.githubusercontent.com/61690297/142945188-be92949b-445e-4e89-b27d-3d83a89cf26d.png)
 ![16.4](https://user-images.githubusercontent.com/61690297/142945227-d5a6a8d6-bf5c-455a-b3fd-f77422bd361c.png)
 
@@ -89,7 +71,7 @@ També afegirem el següent a l'app.js, que ens serviran com a contadors de quan
 Una vegada fet açò ja podem fer el docker-compose up dels dos arxius.
 ![16.6](https://user-images.githubusercontent.com/61690297/142945810-fd40aaf2-6125-4245-afe9-0b67f2e10264.png)
 
-Ara anem al localhost:5000 i veiem que ens ix el hello world.
+Ara anem al localhost:5000 i veiem que ens ix el hello world. Aquesta serà la pàgina que sume al contador.
 ![17](https://user-images.githubusercontent.com/61690297/142945875-23e86174-fbb4-42fd-ae01-74592290ee30.png)
 
 A més, si anem a metrics, veurem els contadors que hem afegit al final de la informació.
@@ -98,7 +80,7 @@ A més, si anem a metrics, veurem els contadors que hem afegit al final de la in
 També podem anar al port 3500 i arribarem a la interfície principal de Grafana.
 ![19](https://user-images.githubusercontent.com/61690297/142946115-1a5652fa-c41a-4814-bcdd-0bc4de426230.png)
 
-Des d'ahí podem anar al Dashboard i crear un panell al que afegint-li la variable que volem trackejar ens mostrarà en el gràfic cada vegada que aquesta canvie. En aquest cas es la d'entrar al home. Fem un parell de recargues al home, actualitzem i veiem que apareix el gràfic.
+Des d'ahí podem anar al Dashboard i crear un panell al que afegint-li la variable que volem trackejar ens mostrarà en el gràfic cada vegada que aquesta canvie. En aquest cas es la d'entrar al home. Fem un parell de recargues al home i veiem que apareix el gràfic.
 ![20](https://user-images.githubusercontent.com/61690297/142946232-0c9aa1cb-856a-4c1c-8cdd-049ee6a76d0e.png)
 
 Amb açò ja ho tindríem tot funcionant.
