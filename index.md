@@ -35,7 +35,7 @@ He pogut solucionar-ho amb el comandament "docker-compose build", el qual crea t
 Per a afegir la base de dades hem d'obrir altra terminal i fer "sudo docker-compose exec mongo-service bash" i afegim el contingut a la col·lecció de categories. Aquesta ens servirà per a veure que el carousel funciona. Els inserts son els següents:
 - db.categories.insertOne({"name" : "electronics", "img" : "https://i.pinimg.com/originals/44/a8/96/44a896b49c923eacb70404f85cada62a.jpg"})
 - db.categories.insertOne({"name" : "clothes", "img" : "http://dslv9ilpbe7p1.cloudfront.net/o8q6FpesdqsdKQu0ktcWXA_store_banner_image.jpeg"})
-- db.categories.insertOne({"name" : "tools", "img" : "https://thumbs.dreamstime.com/b/top-view-set-hand-tools-wooden-background-copy-space-suitable-header-banner-top-view-set-hand-tools-190212508.jpg"})
+- db.categories.insertOne({"name" : "tools", "img" : "https://thumbs.dreamstime.com/b/top-view-set-hand-tools-wooden-background-copy-space-suitable-header-banner-top-view-set-hand-tools-190212508.jpg"})  
 ![14](https://user-images.githubusercontent.com/61690297/142943964-ce183ec3-895a-4eae-9989-e9d59fee3eb4.png)
 
 Finalment tot el docker-compose.yml amb tot ens quedaria així. Hem d'indicar les networks per a que estiguen connectades.  
