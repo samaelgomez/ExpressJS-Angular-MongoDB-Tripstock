@@ -17,4 +17,5 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
+<img style="text-align: center" src="https://user-images.githubusercontent.com/61690297/142940386-3f73870f-3547-4cd4-85b5-096ef0468226.png"/>
 ![1](https://user-images.githubusercontent.com/61690297/142940386-3f73870f-3547-4cd4-85b5-096ef0468226.png)
