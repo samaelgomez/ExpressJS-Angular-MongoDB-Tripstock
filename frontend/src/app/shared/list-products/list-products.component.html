@@ -1,0 +1,19 @@
+<div class="row" *ngFor="let product of listProducts">
+    <div class="example-1 card">
+        <div class="wrapper">
+            <div class="date">
+            <span class="day">12</span>
+            <span class="month">Aug</span>
+            <span class="year">2016</span>
+            </div>
+            <div class="data">
+            <div class="content">
+                <span class="author">{{ product.location }}</span>
+                <h1 class="title"><a href="#">{{ product.price }}€ {{ product.name }}</a></h1>
+                <p class="text">{{ product.name }} for {{ product.price }}€ at {{ product.location }}.</p>
+                <label for="show-menu" class="menu-button"><span></span></label>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

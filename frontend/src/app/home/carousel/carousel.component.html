@@ -1,0 +1,43 @@
+<div class="slider">
+  <div class="slides">
+    <div *ngFor="let category of listCategories; let i = index" id="slide-{{i+1}}">
+      <img [src]="category.img" alt="Category image"/>
+    </div>
+  </div>
+
+  <a *ngFor="let category of listCategories; let i = index" href="#slide-{{i+1}}">
+    {{i+1}}
+  </a>
+</div>
+
+<!-- <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let slide of products">
+      <div class="picsum-img-wrapper">
+        <img src="https://lacelula.es/wp-content/uploads/2018/10/clothes-hanging-862x493.jpg" alt="Random first slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>{{ slide.name }}</h3>
+        <p>{{ slide.desc }}</p>
+      </div>
+    </ng-template>
+</ngb-carousel> -->
+
+<!-- <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide><img src="https://lacelula.es/wp-content/uploads/2018/10/clothes-hanging-862x493.jpg"></ng-template>  
+    <ng-template carouselSlide><img src="https://lacelula.es/wp-content/uploads/2018/10/clothes-hanging-862x493.jpg"></ng-template>  
+    <ng-template carouselSlide><img src="https://lacelula.es/wp-content/uploads/2018/10/clothes-hanging-862x493.jpg"></ng-template>  
+</owl-carousel-o> -->
+
+<!-- <mat-carousel
+  timings="200ms ease-in"
+  [autoplay]="true"
+  interval="6000"
+  color="white"
+>
+  <mat-carousel-slide
+    *ngFor="let slide of slides; let i = index"
+    [image]="slide.image"
+    overlayColor="#ffffff"
+    [hideOverlay]="false"
+  ></mat-carousel-slide>
+</mat-carousel> -->

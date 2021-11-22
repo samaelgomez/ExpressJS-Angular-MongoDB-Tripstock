@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.footerContainer {
+  font-family: 'Arial', sans-serif;
+  background: #4B85D4;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+a.site-logo {
+  display: flex;
+  font-size: 26px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  justify-content: center;
+  text-shadow: 1px 1px #000;
+}
