@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     build: ./frontend
     ports:
-      - "80:80"
+      - ${FRONTEND_PORT}
     depends_on:
       - backend-service
     networks:
@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
     build: ./backend
     ports:
-      - "5000:3000"
+      - ${BACKEND_PORT}
     depends_on:
       - mongo-service
     links:
@@ -33,7 +33,7 @@ services:
     container_name: mongo-container
     image: mongo
     ports:
-      - "27017:27017"
+      - ${MONGO_PORT}
     networks:
       - app-network
       - external-network
@@ -41,4 +41,5 @@ services:
 networks:
   app-network:
   external-network:
-    name: external-network
+    external:
+      name: external-network

@@ -6,7 +6,7 @@ services:
     networks:
       - external-network
     ports:
-      - "9090:9090"
+      - ${PROMETHEUS_PORT}
     depends_on:
       - backend-service
     links:
@@ -21,7 +21,7 @@ services:
     networks:
     - external-network
     ports:
-    - "3500:3000"
+    - ${GRAFANA_PORT}
     volumes:
     - ./backend/grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
     - myGrafanaVol:/var/lib/grafana
@@ -37,5 +37,6 @@ volumes:
   myGrafanaVol:
 
 networks:
-  external-network: 
-    name: external-network
+  external-network:
+    external:
+      name: external-network

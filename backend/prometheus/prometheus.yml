@@ -6,4 +6,4 @@ scrape_configs:
   - job_name: "servidor"
     honor_labels: true
     static_configs:
-    - targets: ["backend-container:3000"]
+    - targets: ["backend-container:5000"]

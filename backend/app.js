@@ -21,7 +21,6 @@ const counterMessageEndpoint = new client.Counter({
     help: 'The total number of processed requests to get endpoint'
 });
 
-
 app.get('/', (req, res) => {
     counterHomeEndpoint.inc();
     res.send('Hello world\n');
