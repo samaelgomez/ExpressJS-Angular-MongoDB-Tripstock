@@ -58,3 +58,13 @@ Amb açò l'objectiu principal de l'activitat ja estaria resolt.
 
 ## Utilitzant les imatges des de Docker Hub  
 
+Per a utilitzar les nostres imatges des de Docker Hub primer hem de muntar-les. Per a fer-ho primer farem "docker login" al nostre terminal i introduirem les nostres dades. Una vegada dins soles hem de ficar-li un tag a la nostra imatge i fem el push de cada imatge.  
+![13](https://user-images.githubusercontent.com/61690297/143279216-20fb23e8-12bb-4179-9fd6-a8de134921ea.jpg)  
+
+Si anem al nostre Docker Hub veurem que s'han muntat satisfactòriament.  
+![14](https://user-images.githubusercontent.com/61690297/143279220-d666a1d4-d2b2-4f2d-9fe5-bded6cf7f655.jpg)  
+
+I per últim hauríem de modificar l'script.sh. Ara no cal que fem build de les imatges perquè ja estan fetes, i a les dos línies finals hem de ficar-li el nom que li hem donat a les nostres imatges.  
+![13 3](https://user-images.githubusercontent.com/61690297/143279210-4cff35cc-8447-462a-bcad-b4113baa8fa0.jpg)  
+
+Així ja ho tindríem amb Docker Hub.
